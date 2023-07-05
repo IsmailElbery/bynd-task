@@ -134,8 +134,7 @@ class PostController extends Controller
 
     public function getPublicPosts()
     {
-        $auth = auth()->user();
-        $posts = Post::where('private', 0)->Where('author_id', $auth->id)->get();
+        $posts = Post::where('private', 0)->get();
         return response()->json([
             'success' => true,
             'message' => 'Public Post List',
